@@ -1,0 +1,23 @@
+<%- include('partials/header.ejs') -%>
+
+<div class="ui text main container segment">
+    <div class="ui huge form header"><%=blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered" src="<%= blog.image %>" alt="SomePicture">
+            <div class="content">
+                <span><%= blog.created.toDateString() %></span> <!-- consider lomenjs library for a better date format -->
+                <span><a class="ui inverted blue button" href="/blogs/<%= blog._id %>/edit">Edit here</a></span>
+            </div>
+            <div class="description">
+                <p><%- blog.body %></p>
+            </div>
+            <form action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui inverted red button">Delete</button>
+            </form>
+        </div>
+    </div>        
+</div>
+
+
+<%- include('partials/footer.ejs') -%>
