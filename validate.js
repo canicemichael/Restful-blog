@@ -4,7 +4,7 @@ module.exports = {
      blogValidation : data => {
         const schema = Joi.object({
             title: Joi.string().min(4).required(),
-            image: Joi.string().dataUri().required(),
+            image: Joi.string().required(),
             body: Joi.string().required()
         }).unknown();
     
